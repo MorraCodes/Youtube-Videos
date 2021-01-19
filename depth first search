@@ -1,0 +1,68 @@
+"""
+Created on Tue Jan 19 13:38:52 2021
+
+@author: omarm
+
+#                  A  
+#              /   |  \  
+#            B     C    D
+#           / \    /   / \
+#          E   F  N   G   H
+#             / \      \
+#            I   J       K
+
+"""
+# Creating the Node class
+class Node:
+    def __init__(self, name):
+        self.children = []
+        self.name = name
+
+    def depthFirstSearch(self, array):
+        array.append(self.name)
+        for child in self.children:
+            child.depthFirstSearch(array)
+        return array
+    
+            
+        
+    
+
+# Creating the nodes    
+A = Node("A")
+B = Node("B") 
+C = Node("C")
+D = Node("D")
+E = Node("E")
+F = Node("F")
+G = Node("G")
+N = Node("N")
+I = Node("I")
+J = Node("J")
+K = Node("K")
+H = Node("H")
+
+# Assigning the children
+A.children = [B,C,D]
+B.children = [E,F]
+C.children = [N]
+D.children = [G,H]
+E.children = []
+F.children = [I,J]
+I.children = []
+J.children = []
+N.children = []
+G.children = [K]
+H.children = []
+
+
+#                  A  
+#              /   |  \  
+#            B     C    D
+#           / \    /   / \
+#          E   F  N   G   H
+#             / \      \
+#            I   J       K
+    
+ArrayNodes = A.depthFirstSearch(array = [])
+print(ArrayNodes)
