@@ -1,0 +1,54 @@
+"""
+Created on Sat Jan 23 16:30:32 2021
+@author: MorraCodes.Omar
+
+"""
+
+"""
+Tip #1: Integer underscore
+"""
+
+episodes = 10_000_000
+
+
+
+"""
+F - String
+Tip #2
+"""
+
+power = 1_000_000_000
+stamina = 1_000_0000_000
+ki = 2000_000_000
+
+print(f"Vegeta has {power} of power,{stamina} of stamina and {ki} of ki\n")
+
+
+"""
+Tip #3
+Properly Unpacking using the zip function
+& Tupling
+"""
+
+names = ["Jim","Pam","MichealScott","Dwight","Rick"]
+jobs = ["Salesman","Clerk","Manager","Regional manager","Mad Scientist"]
+ages = [35,35,43,43,70]
+
+print("without using zip\n")
+
+for i in range(len(names)):
+    print(names[i], jobs[i], ages[i])
+    
+#
+print("Using zip\n\n")
+
+for name, job, age in zip(names, jobs, ages):          # Unpacking the tuple
+    print(name, job, age)
+    
+print("-------------------------")   
+print() 
+print("Using zip to extract the whole tuple\n\n")
+for TUPLE in zip(names, jobs, ages):                   # Using the tuple
+    print(TUPLE)
+    
+    
