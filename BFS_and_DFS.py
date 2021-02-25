@@ -16,25 +16,26 @@ Created on Thu Feb 18 18:38:26 2021
  
 # Creating the TreeNode class
 class TreeNode:
-    def __init__(self, name):
+    def __init__(self, value):
         self.children = []
-        self.name = name
+        self.value = value
  
-    def BreadthFirstSearch(self, array):
+    def BreadthFirstSearch(self):
+        visited = []
         currentTreeNode = self
         queue = [currentTreeNode]
         while len(queue) > 0:
             currentTreeNode = queue.pop(0) # POP the value out of the queue
-            array.append(currentTreeNode.name) #PUSH the value into the result array
+            visited.append(currentTreeNode.value) #PUSH the value into the result array
             for child in currentTreeNode.children: #PUSH the Children into the queue
                 queue.append(child)
-        return array
+        return visited
  
-    def DepthFirstSearch(self, array):
-        array.append(self.name)
+    def DepthFirstSearch(self, visited = []):
+        visited.append(self.value)
         for child in self.children:
-            child.DepthFirstSearch(array)
-        return array
+            child.DepthFirstSearch(visited)
+        return visited
  
  
 # Creating the TreeNodes    
@@ -74,9 +75,9 @@ H.children = []
 #            I   J       K
  
 print("DFS \n")  
-ArrayTreeNodes = A.DepthFirstSearch(array = [])
+ArrayTreeNodes = A.DepthFirstSearch(visited = [])
 print(ArrayTreeNodes)
  
 print("BFS\n")
-ArrayTreeNodes = A.BreadthFirstSearch(array = [])
+ArrayTreeNodes = A.BreadthFirstSearch()
 print(ArrayTreeNodes)
